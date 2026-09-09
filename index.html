@@ -5,16 +5,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>IE FUSHIMI - IE.HOUSE</title>
     <meta name="description" content="House of Tea — A contemporary tea house and cultural machiya organized around Japanese tea, stone moss garden, warm financiers, and craft in Fushimi, Kyoto." />
-    <meta property="og:title" content="IE FUSHIMI - IE.HOUSE" />
-    <meta property="og:description" content="House of Tea — A contemporary tea house and cultural machiya organized around Japanese tea, stone moss garden, warm financiers, and craft in Fushimi, Kyoto." />
-    <meta property="og:type" content="website" />
-    <meta name="twitter:card" content="summary_large_image" />
+    
+    <!-- 폰트 불러오기 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Noto+Serif+KR:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Shippori+Mincho:wght@400;500;600&family=Zen+Kaku+Gothic+New:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Plus+Jakarta+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS (CDN 방식 - 가장 빠르고 쉬운 적용법) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+      /* 페이드 인/아웃 애니메이션 (기획안 반영) */
+      .fade-text-container {
+        position: relative;
+        height: 60px; /* 텍스트가 겹치지 않게 높이 고정 */
+        margin-top: 2rem;
+      }
+      .fade-text {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        opacity: 0;
+        animation: crossfade 12s infinite;
+      }
+      .fade-text:nth-child(2) {
+        animation-delay: 6s; /* 두 번째 문구는 6초 뒤에 시작 */
+      }
+      @keyframes crossfade {
+        0% { opacity: 0; }
+        15% { opacity: 1; }
+        40% { opacity: 1; }
+        55% { opacity: 0; }
+        100% { opacity: 0; }
+      }
+    </style>
   </head>
-  <body class="bg-[#FAF8F5] text-[#1C1A17] antialiased selection:bg-[#3E4B39]/20 selection:text-[#1C1A17] [word-break:keep-all] [overflow-wrap:break-word]">
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+
+  <body class="bg-[#FAF8F5] text-[#1C1A17] antialiased selection:bg-[#3E4B39]/20 selection:text-[#1C1A17] [word-break:keep-all] [overflow-wrap:break-word] m-0 p-0 overflow-hidden">
+    
+    <!-- HERO 섹션 시작 -->
+    <section class="relative w-full h-screen flex flex-col justify-center items-center">
+      
+      <!-- 배경 영상 (반드시 index.html과 같은 위치에 images 폴더가 있어야 함) -->
+      <video 
+        src="./images/hero_opening.mp4" 
+        autoplay 
+        loop 
+        muted 
+        playsinline 
+        class="absolute top-0 left-0 w-full h-full object-cover -z-10 brightness-90">
+      </video>
+
+      <!-- 텍스트 콘텐츠 -->
+      <div class="relative z-10 text-center flex flex-col items-center">
+        <!-- 메인 타이틀 -->
+        <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl tracking-[0.2em] mb-4 text-white drop-shadow-md" style="font-family: 'Cormorant Garamond', serif;">
+          Ie HOUSE OF TEA<br>
+          <span class="text-2xl md:text-3xl mt-2 block">FUSHIMI · KYOTO</span>
+        </h1>
+
+        <!-- 크로스페이드 텍스트 -->
+        <div class="fade-text-container w-full font-serif text-xl md:text-2xl text-white/90 drop-shadow-sm" style="font-family: 'Cormorant Garamond', serif;">
+          <p class="fade-text">A house organised around tea.</p>
+          <p class="fade-text">Tea. Food. Garden. Craft.</p>
+        </div>
+      </div>
+
+      <!-- 하단 스크롤 유도 문구 -->
+      <div class="absolute bottom-12 left-1/2 transform -translate-x-1/2 text-xs md:text-sm tracking-[0.3em] uppercase text-white/80" style="font-family: 'Plus Jakarta Sans', sans-serif;">
+        Enter ↓
+      </div>
+
+    </section>
+
   </body>
 </html>
