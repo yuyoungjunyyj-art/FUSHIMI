@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IE FUSHIMI - IE.HOUSE | Hero</title>
+  
+  <!-- Fonts: Cormorant Garamond (Serif) & Plus Jakarta Sans (Sans-serif) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <style>
+    /* ==========================================================================
+       IE FUSHIMI — HERO STYLESHEET (style.css)
+       Color Palette: Washi (#f9f6f0), Sumi (#2a2a2a)
+       Mood: Quiet, Tactile, Warm, Architectural, Unhurried, Contemporary
+       ========================================================================== */
+    :root {
+      --color-washi: #f9f6f0;
+      --color-sumi: #2a2a2a;
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      background-color: var(--color-washi);
+      color: var(--color-sumi);
+      font-family: var(--font-sans);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* 1 & 2. Full-Viewport Hero Section */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 3rem 2rem 2rem 2rem;
+      background-color: var(--color-washi);
+      overflow: hidden;
+    }
+
+    @media (min-width: 768px) {
+      .hero {
+        padding: 4rem 4rem 3rem 4rem;
+      }
+    }
+
+    /* 4. Background Video Container */
+    .hero-video-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .hero-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Tactile washi scrim ensuring crisp contrast for Sumi text */
+    .hero-video-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(249, 246, 240, 0.72);
+      backdrop-filter: blur(0.5px);
+    }
+
+    /* Top Subtle Identity / Location */
+    .hero-top {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.75rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(42, 42, 42, 0.65);
+    }
+
+    /* 5 & 6. Central Asymmetric Typography Container */
+    .hero-center {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 1280px;
+      margin: auto auto;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      /* Asymmetric left indent to create architectural breathing room */
+      padding-left: clamp(0rem, 5vw, 6rem);
+    }
+
+    /* 5. Central Brand Title */
+    .hero-brand {
+      display: inline-block;
+      font-size: 0.8125rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      font-weight: 500;
+      color: rgba(42, 42, 42, 0.8);
+      margin-bottom: 1.75rem;
+      border-bottom: 1px solid rgba(42, 42, 42, 0.15);
+      padding-bottom: 0.5rem;
+    }
+
+    /* 6. Stacked Crossfading Container */
+    .hero-crossfade-stage {
+      position: relative;
+      width: 100%;
+      max-width: 800px;
+      height: 220px;
+    }
+
+    @media (max-width: 640px) {
+      .hero-crossfade-stage {
+        height: 180px;
+      }
+    }
+
+    .hero-phrase {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+    }
+
+    .hero-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2.75rem, 7vw, 5.5rem);
+      font-weight: 400;
+      line-height: 0.98;
+      letter-spacing: -0.02em;
+      color: var(--color-sumi);
+    }
+
+    .hero-title span.italic {
+      font-style: italic;
+      font-weight: 300;
+    }
+
+    /* ==========================================================================
+       PROMPT 3: UNHURRIED PURE CSS CROSSFADE LOOP (14s)
+       ========================================================================== */
+    @keyframes crossfadeOne {
+      0%, 42% {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0px);
+        visibility: visible;
+      }
+      48%, 94% {
+        opacity: 0;
+        transform: translateY(-8px);
+        filter: blur(3px);
+        visibility: hidden;
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0px);
+        visibility: visible;
+      }
+    }
+
+    @keyframes crossfadeTwo {
+      0%, 44% {
+        opacity: 0;
+        transform: translateY(8px);
+        filter: blur(3px);
+        visibility: hidden;
+      }
+      50%, 92% {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0px);
+        visibility: visible;
+      }
+      98%, 100% {
+        opacity: 0;
+        transform: translateY(-8px);
+        filter: blur(3px);
+        visibility: hidden;
+      }
+    }
+
+    .phrase-1 {
+      animation: crossfadeOne 14s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    }
+
+    .phrase-2 {
+      animation: crossfadeTwo 14s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    }
+
+    /* 7. Bottom Subtle Scroll Prompt: "Enter ↓" */
+    .hero-bottom {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid rgba(42, 42, 42, 0.12);
+      padding-top: 1.25rem;
+    }
+
+    .hero-enter {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      font-size: 0.75rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      font-weight: 500;
+      color: rgba(42, 42, 42, 0.85);
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .hero-enter:hover {
+      color: var(--color-sumi);
+      transform: translateY(2px);
+    }
+
+    .hero-coords {
+      font-size: 0.6875rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(42, 42, 42, 0.45);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO SECTION: "A House, Not a Website" -->
+  <section id="hero" class="hero">
+    <!-- 4. Background Video Container -->
+    <div class="hero-video-container">
+      <video
+        src="./images/hero_opening.mp4"
+        autoplay
+        loop
+        muted
+        playsinline
+        class="hero-video"
+      ></video>
+      <div class="hero-video-overlay"></div>
+    </div>
+
+    <!-- Top Identifier -->
+    <div class="hero-top">
+      <span>Kyoto Machiya Restored</span>
+      <span class="hero-coords">34°58'14.8"N 135°46'19.2"E</span>
+    </div>
+
+    <!-- 5 & 6. Central Asymmetric Typography Container -->
+    <div class="hero-center">
+      <!-- 5. Central Identifier -->
+      <span class="hero-brand">Ie HOUSE OF TEA FUSHIMI · KYOTO</span>
+
+      <!-- 6. Alternating Phrases (Pure CSS Crossfade) -->
+      <div class="hero-crossfade-stage">
+        <!-- Phrase 1 -->
+        <div class="hero-phrase phrase-1">
+          <h1 class="hero-title">
+            A house <br />
+            <span class="italic">organised</span> <br />
+            around tea.
+          </h1>
+        </div>
+
+        <!-- Phrase 2 -->
+        <div class="hero-phrase phrase-2">
+          <h1 class="hero-title">
+            Tea. Food. <br />
+            <span class="italic">Garden.</span> <br />
+            Craft.
+          </h1>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7. Scroll Indicator -->
+    <div class="hero-bottom">
+      <a href="#house" class="hero-enter">Enter ↓</a>
+      <span class="hero-coords">Fushimi · Kyoto · Japan</span>
+    </div>
+  </section>
+
+</body>
+</html>

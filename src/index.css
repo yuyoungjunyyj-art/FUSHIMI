@@ -1,0 +1,91 @@
+@import "tailwindcss";
+
+@theme {
+  --font-editorial: 'Cormorant Garamond', 'Noto Serif KR', 'Shippori Mincho', serif;
+  --font-sans-clean: 'Plus Jakarta Sans', 'Zen Kaku Gothic New', sans-serif;
+  --color-washi: #f9f6f0;
+  --color-sumi: #2a2a2a;
+}
+
+/* ==========================================================================
+   KOREAN TYPOGRAPHY & ARCHITECTURAL JOURNAL READABILITY
+   Prevents arbitrary mid-word line breaks in Korean and Asian text
+   ========================================================================== */
+html,
+body,
+h1, h2, h3, h4, h5, h6,
+p, span, a, button, label, li, blockquote {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+/* ==========================================================================
+   NUMERAL OPTICAL SIZE & FONT MATCHING FOR HEADINGS (1층, 2층 등)
+   Ensures numbers have the exact optical size, cap-height, stroke weight,
+   and baseline alignment as accompanying Hangul text.
+   ========================================================================== */
+.num-heading-match {
+  display: inline-block;
+  font-family: 'Noto Serif KR', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1.15em;
+  font-weight: 500;
+  line-height: 0.92;
+  vertical-align: 0.02em;
+  letter-spacing: -0.01em;
+  margin-right: 0.04em;
+}
+
+/* ==========================================================================
+   HERO UNHURRIED CROSSFADE ANIMATION (Pure CSS @keyframes, 14s loop)
+   Phrase 1: "A house organised around tea."
+   Phrase 2: "Tea. Food. Garden. Craft."
+   ========================================================================== */
+@keyframes heroCrossfade1 {
+  0%, 42% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0px);
+    visibility: visible;
+  }
+  48%, 94% {
+    opacity: 0;
+    transform: translateY(-8px);
+    filter: blur(3px);
+    visibility: hidden;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0px);
+    visibility: visible;
+  }
+}
+
+@keyframes heroCrossfade2 {
+  0%, 44% {
+    opacity: 0;
+    transform: translateY(8px);
+    filter: blur(3px);
+    visibility: hidden;
+  }
+  50%, 92% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0px);
+    visibility: visible;
+  }
+  98%, 100% {
+    opacity: 0;
+    transform: translateY(-8px);
+    filter: blur(3px);
+    visibility: hidden;
+  }
+}
+
+.hero-phrase-crossfade-1 {
+  animation: heroCrossfade1 14s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.hero-phrase-crossfade-2 {
+  animation: heroCrossfade2 14s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
