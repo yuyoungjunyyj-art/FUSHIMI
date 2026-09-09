@@ -1,8 +1,0 @@
-{
-  "name": "IE FUSHIMI",
-  "description": "House of Tea — A contemporary Kyoto machiya organized around Japanese tea, courtyard garden, warm financiers, and craft in Fushimi, Kyoto.",
-  "requestFramePermissions": [],
-  "majorCapabilities": [
-    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
-  ]
-}
