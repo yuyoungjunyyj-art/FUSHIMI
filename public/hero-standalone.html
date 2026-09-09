@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="ko" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IE FUSHIMI - IE.HOUSE (HERO STANDALONE)</title>
+  <meta name="description" content="House of Tea — A contemporary tea house and cultural machiya organized around Japanese tea, stone moss garden, warm financiers, and craft in Fushimi, Kyoto." />
+
+  <!-- Google Fonts: Cormorant Garamond (Serif), Noto Serif KR, Plus Jakarta Sans (Sans-serif) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Noto+Serif+KR:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            washi: '#FAF8F5',
+            sumi: '#1C1A17',
+          },
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', '"Noto Serif KR"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      --color-washi: #FAF8F5;
+      --color-sumi: #1C1A17;
+      --font-serif: 'Cormorant Garamond', 'Noto Serif KR', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      background-color: var(--color-washi);
+      color: var(--color-sumi);
+      font-family: var(--font-sans);
+      word-break: keep-all;
+      overflow-wrap: break-word;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    .hero-container {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+      background-color: var(--color-washi);
+      user-select: none;
+    }
+
+    .hero-video-wrapper {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .hero-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    .hero-video-scrim {
+      position: absolute;
+      inset: 0;
+      background: rgba(250, 248, 245, 0.70);
+      backdrop-filter: blur(0.5px);
+      z-index: 1;
+    }
+
+    .hero-video-gradient {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(250, 248, 245, 0.85) 0%,
+        rgba(250, 248, 245, 0.25) 45%,
+        rgba(250, 248, 245, 0.88) 100%
+      );
+      z-index: 2;
+    }
+
+    .hero-top-header {
+      position: relative;
+      z-index: 10;
+      width: 100%;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: clamp(2rem, 5vw, 4.5rem) clamp(1.5rem, 6vw, 5rem) 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .hero-brand-title {
+      font-family: var(--font-serif);
+      font-size: clamp(0.85rem, 1.4vw, 1.15rem);
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      font-weight: 500;
+      color: rgba(28, 26, 23, 0.88);
+      border-bottom: 1px solid rgba(28, 26, 23, 0.16);
+      padding-bottom: 0.4rem;
+      display: inline-block;
+    }
+
+    .hero-location-tag {
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(28, 26, 23, 0.45);
+      font-weight: 400;
+    }
+
+    @media (max-width: 640px) {
+      .hero-location-tag {
+        display: none;
+      }
+    }
+
+    .hero-center-stage {
+      position: relative;
+      z-index: 10;
+      width: 100%;
+      max-width: 1400px;
+      margin: auto auto;
+      padding: 0 clamp(1.5rem, 6vw, 5rem);
+    }
+
+    .hero-crossfade-box {
+      position: relative;
+      width: 100%;
+      max-width: 960px;
+      height: 240px;
+    }
+
+    @media (max-width: 640px) {
+      .hero-crossfade-box {
+        height: 190px;
+      }
+    }
+
+    .hero-phrase {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+    }
+
+    .hero-headline {
+      font-family: var(--font-serif);
+      font-size: clamp(2.75rem, 7.5vw, 5.75rem);
+      font-weight: 400;
+      line-height: 1.02;
+      letter-spacing: -0.025em;
+      color: var(--color-sumi);
+    }
+
+    .hero-headline .italic-word {
+      font-style: italic;
+      font-weight: 300;
+    }
+
+    .hero-subline {
+      margin-top: 1rem;
+      font-family: var(--font-sans);
+      font-size: clamp(0.8rem, 1.1vw, 1rem);
+      font-weight: 300;
+      letter-spacing: 0.05em;
+      color: rgba(28, 26, 23, 0.65);
+      word-break: keep-all;
+    }
+
+    @keyframes crossfadeOne {
+      0%, 42% {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0px);
+        visibility: visible;
+      }
+      48%, 94% {
+        opacity: 0;
+        transform: translateY(-8px);
+        filter: blur(3px);
+        visibility: hidden;
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0px);
+        visibility: visible;
+      }
+    }
+
+    @keyframes crossfadeTwo {
+      0%, 44% {
+        opacity: 0;
+        transform: translateY(8px);
+        filter: blur(3px);
+        visibility: hidden;
+      }
+      50%, 92% {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0px);
+        visibility: visible;
+      }
+      98%, 100% {
+        opacity: 0;
+        transform: translateY(-8px);
+        filter: blur(3px);
+        visibility: hidden;
+      }
+    }
+
+    .phrase-1 {
+      animation: crossfadeOne 14s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    }
+
+    .phrase-2 {
+      animation: crossfadeTwo 14s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    }
+
+    .hero-bottom-footer {
+      position: relative;
+      z-index: 10;
+      width: 100%;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 clamp(1.5rem, 6vw, 5rem) clamp(2rem, 4vw, 3.5rem);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid rgba(28, 26, 23, 0.12);
+      padding-top: 1.25rem;
+    }
+
+    .hero-enter-link {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      font-family: var(--font-sans);
+      font-size: clamp(0.72rem, 0.9vw, 0.85rem);
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      font-weight: 400;
+      color: rgba(28, 26, 23, 0.7);
+      transition: color 0.4s ease, transform 0.4s ease;
+      cursor: pointer;
+    }
+
+    .hero-enter-link:hover {
+      color: var(--color-sumi);
+      transform: translateY(2px);
+    }
+
+    .hero-bottom-coords {
+      font-family: var(--font-sans);
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(28, 26, 23, 0.4);
+    }
+  </style>
+</head>
+<body class="bg-washi text-sumi antialiased">
+  <section class="hero-container relative w-screen h-screen min-h-screen flex flex-col justify-between overflow-hidden bg-[#FAF8F5] text-[#1C1A17] select-none">
+    <div class="hero-video-wrapper absolute inset-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
+      <video
+        src="./images/hero_opening.mp4"
+        autoplay
+        loop
+        muted
+        playsinline
+        class="hero-video absolute inset-0 w-full h-full object-cover -z-10"
+      ></video>
+      <div class="hero-video-scrim"></div>
+      <div class="hero-video-gradient"></div>
+    </div>
+
+    <header class="hero-top-header relative z-10 w-full flex justify-between items-baseline">
+      <h1 class="hero-brand-title font-serif text-sm sm:text-base md:text-lg tracking-[0.28em] uppercase text-[#1C1A17]/90 font-medium">
+        Ie HOUSE OF TEA FUSHIMI · KYOTO
+      </h1>
+      <span class="hero-location-tag">
+        Kyoto Machiya Restored · 34°58'N 135°46'E
+      </span>
+    </header>
+
+    <div class="hero-center-stage relative z-10 w-full">
+      <div class="hero-crossfade-box relative w-full">
+        <div class="hero-phrase phrase-1">
+          <h2 class="hero-headline">
+            A house <br />
+            <span class="italic-word">organised</span> <br />
+            around tea.
+          </h2>
+          <p class="hero-subline">
+            차를 중심으로 고요히 피어난 교토의 집.
+          </p>
+        </div>
+
+        <div class="hero-phrase phrase-2">
+          <h2 class="hero-headline">
+            Tea. Food. <br />
+            <span class="italic-word">Garden.</span> <br />
+            Craft.
+          </h2>
+          <p class="hero-subline">
+            차, 음식, 정원, 그리고 공예의 시간.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <footer class="hero-bottom-footer relative z-10 w-full flex justify-between items-center">
+      <a href="#house" class="hero-enter-link">
+        Enter ↓
+      </a>
+      <span class="hero-bottom-coords">
+        Fushimi · Kyoto · Japan
+      </span>
+    </footer>
+  </section>
+</body>
+</html>
