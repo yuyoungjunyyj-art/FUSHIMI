@@ -49,10 +49,10 @@ export const Navigation: React.FC<NavigationProps> = ({
   return (
     <header
       id="main-navigation"
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
         isScrolled
-          ? 'bg-[#FAF8F5]/90 backdrop-blur-md border-b border-[#1C1A17]/10 py-3 shadow-[0_4px_20px_-12px_rgba(28,26,23,0.06)]'
-          : 'bg-transparent py-5'
+          ? 'opacity-100 translate-y-0 bg-[#FAF8F5]/90 backdrop-blur-md border-b border-[#1C1A17]/10 py-3 shadow-[0_4px_20px_-12px_rgba(28,26,23,0.06)] pointer-events-auto'
+          : 'opacity-0 -translate-y-4 pointer-events-none'
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-8 flex items-center justify-between">
